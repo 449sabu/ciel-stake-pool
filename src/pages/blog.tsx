@@ -16,8 +16,7 @@ const Blog: NextPage = () => {
             <p className="py-6 max-w-md mx-auto">
               Blogページは現在開発中です。
             </p>
-            <div className="py-6">
-            </div>
+            <div className="py-6"></div>
           </div>
         </div>
       </div>

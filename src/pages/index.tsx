@@ -18,9 +18,7 @@ const Home: NextPage = () => {
             <p className="py-6 max-w-md mx-auto">
               ARMベースで構築された環境に優しいnodeは、低消費電力を実現し地理的分散化に貢献します。
             </p>
-            <p className="text-3xl max-w-md mx-auto">
-              Ticker : CIEL
-            </p>
+            <p className="text-3xl max-w-md mx-auto">Ticker : CIEL</p>
             <div className="py-6">
               <PoolStats />
             </div>
