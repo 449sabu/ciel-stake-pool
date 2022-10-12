@@ -13,11 +13,13 @@ export default function BlogId({ blog }: Props) {
   return (
     <>
       <Head>
-        <title>【SSR】Blog_id: {blog.id}</title>
-        <meta property="og:title" content={`【SSR】photo_id: ${blog.title}`} />
+        <title>CIEL Epochal Blog</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="CIEL Epochal Blog" />
         <meta property="og:description" content={`${blog.title}`} />
         <meta property="og:image" content={blog.image.url} />
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@CIEL_Stake_Pool" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <div className="lg:px-10 lg:py-6 mx-auto">
         <div className="max-w-6xl px-10 py-6 mx-auto">
