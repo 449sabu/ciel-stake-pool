@@ -2,6 +2,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { client } from 'libs/client';
 import type { Blog, Tag } from 'types/blog';
 
@@ -25,7 +26,27 @@ type Props = {
   tags: Array<Tag>;
 };
 
-export default function Test({ blogs }: Props) {
+export default function Test({ blogs, tags }: Props) {
+  // getStaticPropsで取得したtagsからtag名のみ抜き出す
+  const [showBlogs, setShowBlogs] = useState(blogs);
+  const tagList = tags.map((tag) => tag.tag);
+  const selectTag = (tag: string) => {
+    if (tag === 'all') {
+      setShowBlogs(blogs);
+    } else {
+      const selectBlogs = blogs.filter((blog) => {
+        const haveTags = blog.tags?.map((tag) => tag.tag);
+        return haveTags?.includes(tag);
+      });
+      setShowBlogs(selectBlogs);
+    }
+    console.log(showBlogs);
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <>
       <Head>
@@ -37,9 +58,27 @@ export default function Test({ blogs }: Props) {
         <h1 className="container mx-auto px-10 pt-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 ">
           記事一覧
         </h1>
+        {/* ↓↓ タグ絞り込みリスト */}
+        <div>
+          <button
+            className="btn btn-outline btn-error btn-sm"
+            onClick={() => selectTag('all')}
+          >
+            #ALL
+          </button>
+          {tagList.map((tag) => (
+            <button
+              key={tag}
+              className="btn btn-outline btn-error btn-sm"
+              onClick={() => selectTag(tag)}
+            >
+              #{tag}
+            </button>
+          ))}
+        </div>
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
           <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
-            {blogs.map((blog) => (
+            {showBlogs.map((blog) => (
               <div
                 key={blog.id}
                 className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm"
@@ -62,8 +101,16 @@ export default function Test({ blogs }: Props) {
                     Sed ut perspiciatis unde omnis iste natus error sit sed quia
                     consequuntur magni.
                   </p>
+                  {blog.tags?.map((tag) => (
+                    <button
+                      key={tag.id}
+                      className="btn btn-outline btn-xs inline-flex  font-semibold m-1"
+                    >
+                      #{tag.tag}
+                    </button>
+                  ))}
                   <Link href={`/blog/${blog.id}`}>
-                    <a className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">
+                    <a className="block text-right font-black duration-200">
                       Read more
                     </a>
                   </Link>
