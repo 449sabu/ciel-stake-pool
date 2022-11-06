@@ -17,6 +17,7 @@ export const getStaticProps = async () => {
     props: {
       blogs: blog.contents,
       tags: tag.contents,
+      revalidate: 10,
     },
   };
 };
@@ -46,7 +47,7 @@ export default function BlogCopy({ blogs, tags }: Props) {
       behavior: 'smooth',
     });
   };
-
+  console.log(blogs)
   return (
     <>
       <Head>
