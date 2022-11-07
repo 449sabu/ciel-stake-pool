@@ -47,7 +47,7 @@ export default function BlogCopy({ blogs, tags }: Props) {
       behavior: 'smooth',
     });
   };
-  console.log(blogs)
+  console.log(blogs);
   return (
     <>
       <Head>
