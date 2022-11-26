@@ -6,6 +6,9 @@ const Footer: NextPage = () => {
     <footer className="footer p-10 bg-base-300 text-base-content">
       <div>
         <p>&copy;CIEL Stake Pool</p>
+        <Link href="/privacy">
+          <a className="link link-hover">プライバシーポリシー</a>
+        </Link>
       </div>
       <div>
         {/* <span className="footer-title">Services</span>
