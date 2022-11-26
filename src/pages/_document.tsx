@@ -1,12 +1,13 @@
 import { Html, Head, Main, NextScript } from 'next/document';
-import { GA_ID } from '../libs/gtag';
+import { GoogleAnalytics } from '../libs/gtag';
 
 export default function Document() {
   return (
     <Html lang={'ja'} dir={'ltr'}>
       <Head>
         {/* Google Analytics */}
-        {GA_ID && (
+        <GoogleAnalytics />
+        {/* {GA_ID && (
           <>
             <script
               async
@@ -24,7 +25,7 @@ export default function Document() {
               }}
             />
           </>
-        )}
+        )} */}
       </Head>
       <body>
         <Main />
