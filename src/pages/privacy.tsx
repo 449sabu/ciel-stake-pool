@@ -22,10 +22,10 @@ const Privacy: NextPage = () => {
                 運営者 : Yoshiki <br />
                 サイトURL :{' '}
                 <a
-                  href="https://www.cielstakepool.com/"
+                  href="https://cielstakepool.com/"
                   className="font-bold link link-hover"
                 >
-                  https://www.cielstakepool.com/
+                  https://cielstakepool.com/
                 </a>
               </p>
             </div>

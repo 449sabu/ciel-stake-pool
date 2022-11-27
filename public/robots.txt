@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://cielstakepool.com
+
+# Sitemaps
+Sitemap: https://cielstakepool.com/sitemap.xml
