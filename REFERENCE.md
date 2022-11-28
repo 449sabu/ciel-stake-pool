@@ -1,3 +1,5 @@
+# 参考文献
+
 ## Add the Google Analytics
 - [Next.jsでGoogle Analyticsを使えるようにする](https://panda-program.com/posts/nextjs-google-analytics)  
 - [Next.js (TypeScript) に Google Analytics を導入する](https://zenn.dev/taichifukumoto/scraps/78e2f13e923b06)  
@@ -11,3 +13,4 @@
 - [Nodemailer](https://nodemailer.com/about/)  
 - [Next.js + Vercel でお問い合わせフォームを作る](https://zenn.dev/tiwu_dev/articles/a7ebe4d36e4b74)  
 - [NextJSでgmailのお問合せフォームをnodemailerで無料で作る 2022](https://qiita.com/akifumii/items/0ef31043723c14546aa5#nextjs%E3%81%AE%E6%BA%96%E5%82%99)  
+-[Node.js | Nodemailerを使ってメールを送信する](https://analyzegear.co.jp/blog/1746)
