@@ -1,4 +1,4 @@
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { client } from 'libs/client';
@@ -65,13 +65,13 @@ export default function BlogId({ blog }: Props) {
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await client.get({ endpoint: 'blog' });
 
-  const paths = data.contents.map((content: any) => `/blog/${content.id}`);
+  const paths = data.contents.map((content: Blog) => `/blog/${content.id}`);
   return { paths, fallback: false };
 };
 
 // データをテンプレートに受け渡す部分の処理を記述します
-export const getStaticProps: GetStaticProps = async (context:any) => {
-  const id = context.params.id;
+export const getStaticProps = async (context: Blog) => {
+  const id = context.id;
   const data = await client.get({ endpoint: 'blog', contentId: id });
 
   return {
