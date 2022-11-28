@@ -21,7 +21,12 @@ const Navbar: NextPage = () => {
           </Link>
           <Link href="/blog">
             <a className="text-gray-600 hover:text-indigo-500 active:text-indigo-700 text-lg font-semibold transition duration-100">
-              Blog
+              BLOG
+            </a>
+          </Link>
+          <Link href="/contact">
+            <a className="text-gray-600 hover:text-indigo-500 active:text-indigo-700 text-lg font-semibold transition duration-100">
+              お問い合わせ
             </a>
           </Link>
         </nav>
@@ -51,13 +56,16 @@ const Navbar: NextPage = () => {
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+            className="dropdown-content menu p-2 shadow bg-base-300 rounded-box w-52"
           >
             <li>
               <Link href="/">HOME</Link>
             </li>
             <li>
               <Link href="/blog">BLOG</Link>
+            </li>
+            <li>
+              <Link href="/contact">お問い合わせ</Link>
             </li>
           </ul>
         </div>
