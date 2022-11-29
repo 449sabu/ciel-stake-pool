@@ -1,4 +1,5 @@
-import { GetStaticPaths } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import Head from 'next/head';
 import Image from 'next/image';
 import { client } from 'libs/client';
@@ -9,7 +10,6 @@ type Props = {
 };
 
 export default function BlogId({ blog }: Props) {
-  console.log(blog);
   return (
     <>
       <Head>
@@ -62,16 +62,18 @@ export default function BlogId({ blog }: Props) {
 // };
 
 // 静的生成のためのパスを指定します
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const data = await client.get({ endpoint: 'blog' });
 
   const paths = data.contents.map((content: Blog) => `/blog/${content.id}`);
   return { paths, fallback: false };
 };
 
-// データをテンプレートに受け渡す部分の処理を記述します
-export const getStaticProps = async (context: Blog) => {
-  const id = context.id;
+// データをテンプレートに受け渡す部分の処理
+export const getStaticProps: GetStaticProps<Props, Params> = async (
+  context,
+) => {
+  const id = context.params?.id;
   const data = await client.get({ endpoint: 'blog', contentId: id });
 
   return {
