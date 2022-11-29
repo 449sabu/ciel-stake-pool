@@ -10,6 +10,8 @@
     "format": "next lint --fix --dir src"
   },
   "dependencies": {
+    "@martifylabs/mesh": "^1.2.0-beta.2",
+    "@martifylabs/mesh-react": "^1.1.0",
     "cheerio": "^1.0.0-rc.12",
     "daisyui": "^2.31.0",
     "highlight.js": "^11.7.0",

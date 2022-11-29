@@ -1,9 +1,13 @@
+import { KoiosProvider } from '@martifylabs/mesh';
+import { StakeButton } from '@martifylabs/mesh-react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Alliance from 'components/Alliance';
 import PoolStats from 'components/PoolStats';
 
 const Home: NextPage = () => {
+  const blockchainProvider = new KoiosProvider('api');
+
   return (
     <>
       <Head>
@@ -22,6 +26,16 @@ const Home: NextPage = () => {
             <p className="text-3xl max-w-md mx-auto">Ticker : CIEL</p>
             <div className="py-6">
               <PoolStats />
+            </div>
+            <div className="py-6">
+              <div>
+                <StakeButton
+                  onCheck={(address: string) =>
+                    blockchainProvider.fetchAccountInfo(address)
+                  }
+                  poolId="pool12jnulzs7j8lsku4r2a7q6tee6tt66872vwhqh8jxvgzn6837jtl"
+                />
+              </div>
             </div>
           </div>
         </div>

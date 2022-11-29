@@ -1,3 +1,4 @@
+import { MeshProvider } from '@martifylabs/mesh-react';
 import type { AppProps } from 'next/app';
 import '../styles/globals.css';
 import Head from 'next/head';
@@ -13,13 +14,15 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <GoogleAnalytics />
       </Head>
-      <header>
-        <Navbar />
-      </header>
-      <Component {...pageProps} />
-      <footer>
-        <Footer />
-      </footer>
+      <MeshProvider>
+        <header>
+          <Navbar />
+        </header>
+        <Component {...pageProps} />
+        <footer>
+          <Footer />
+        </footer>
+      </MeshProvider>
     </>
   );
 }
