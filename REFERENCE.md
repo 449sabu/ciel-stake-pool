@@ -13,4 +13,8 @@
 - [Nodemailer](https://nodemailer.com/about/)  
 - [Next.js + Vercel でお問い合わせフォームを作る](https://zenn.dev/tiwu_dev/articles/a7ebe4d36e4b74)  
 - [NextJSでgmailのお問合せフォームをnodemailerで無料で作る 2022](https://qiita.com/akifumii/items/0ef31043723c14546aa5#nextjs%E3%81%AE%E6%BA%96%E5%82%99)  
--[Node.js | Nodemailerを使ってメールを送信する](https://analyzegear.co.jp/blog/1746)
+- [Node.js | Nodemailerを使ってメールを送信する](https://analyzegear.co.jp/blog/1746)
+
+## use microCMS
+- [microCMS × Next.js（TypeScript）で個人ブログを作る](https://qiita.com/hinako_n/items/e53b02c241b8e35d42cb)  
+
