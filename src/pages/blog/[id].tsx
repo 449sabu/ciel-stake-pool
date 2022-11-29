@@ -1,4 +1,9 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import {
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType,
+  NextPage,
+} from 'next';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -9,7 +14,10 @@ type Props = {
   blog: Blog;
 };
 
-export default function BlogId({ blog }: Props) {
+const BlogId: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  blog,
+}: Props) => {
+  // export default function BlogId({ blog }: Props) {
   return (
     <>
       <Head>
@@ -43,25 +51,10 @@ export default function BlogId({ blog }: Props) {
       </div>
     </>
   );
-}
+};
 
-// SSR/フォーマットエラーなし
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   const id = context.params?.id;
-//   const idExceptArray = id instanceof Array ? id[0] : id;
-//   const data = await client.get({
-//     endpoint: 'blog',
-//     contentId: idExceptArray,
-//   });
+export default BlogId;
 
-//   return {
-//     props: {
-//       blog: data,
-//     },
-//   };
-// };
-
-// 静的生成のためのパスを指定します
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const data = await client.get({ endpoint: 'blog' });
 
@@ -69,7 +62,6 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return { paths, fallback: false };
 };
 
-// データをテンプレートに受け渡す部分の処理
 export const getStaticProps: GetStaticProps<Props, Params> = async (
   context,
 ) => {
