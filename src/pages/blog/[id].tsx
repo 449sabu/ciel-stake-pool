@@ -1,3 +1,6 @@
+import { load } from 'cheerio';
+// import Cheerio from 'cheerio';
+import hljs from 'highlight.js';
 import {
   GetStaticPaths,
   GetStaticProps,
@@ -9,13 +12,17 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { client } from 'libs/client';
 import type { Blog } from 'types/blog';
+// https://highlightjs.org/static/demo/ CSSリスト
+import 'highlight.js/styles/felipec.css';
 
 type Props = {
   blog: Blog;
+  body: string;
 };
 
 const BlogId: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   blog,
+  body,
 }: Props) => {
   // export default function BlogId({ blog }: Props) {
   return (
@@ -45,7 +52,7 @@ const BlogId: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           </div>
           <div
             className="prose sm:prose lg:prose-lg xl:prose-xl"
-            dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
+            dangerouslySetInnerHTML={{ __html: `${body}` }}
           />
         </div>
       </div>
@@ -67,10 +74,19 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
 ) => {
   const id = context.params?.id;
   const data = await client.get({ endpoint: 'blog', contentId: id });
+  // highlight.js cheerio
+  // const $ = Cheerio.load(data.body);
+  const $ = load(data.body);
+  $('pre code').each((_, elm) => {
+    const result = hljs.highlightAuto($(elm).text());
+    $(elm).html(result.value);
+    $(elm).addClass('hljs');
+  });
 
   return {
     props: {
       blog: data,
+      body: $.html(),
     },
   };
 };
