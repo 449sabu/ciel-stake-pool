@@ -16,5 +16,20 @@
 - [Node.js | Nodemailerを使ってメールを送信する](https://analyzegear.co.jp/blog/1746)
 
 ## use microCMS
+- [microCMS + Next.jsでJamstackブログを作ってみよう](https://blog.microcms.io/microcms-next-jamstack-blog/)  
 - [microCMS × Next.js（TypeScript）で個人ブログを作る](https://qiita.com/hinako_n/items/e53b02c241b8e35d42cb)  
 
+
+## Code Syntax Highlighting
+- [コンテンツAPIのパース処理の選択肢](https://blog.microcms.io/contents-parse-way/)  
+- [サーバサイドでシンタックスハイライトを行う](https://blog.microcms.io/syntax-highlighting-on-server-side/)  
+- [cheerio HTMLパーサー](https://cheerio.js.org/)  
+- [highlight.js demo](https://highlightjs.org/static/demo/)  
+- [highlight.js Guide](https://highlightjs.readthedocs.io/en/latest/language-guide.html#)  
+- [TailwindCSS typography](https://tailwindcss.com/docs/typography-plugin)  
+***
+代替え案(tsxに対応している)
+- [Prism](https://prismjs.com/docs/index.html)  
+- [Next.js+microCMSのSSGでコードのシンタックスハイライトを効かせる](https://iam-oke-tokyo.vercel.app/posts/vrgux_aaj)  
+- [Tailwindを導入した](https://makomakok.dev/posts/change-highliter)  
+- [Prism.jsでコードをSyntax Highlightingする方法](https://pote-chil.com/next-js-prism-js/)  
